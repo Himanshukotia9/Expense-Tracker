@@ -15,4 +15,7 @@ expenseForm.addEventListener("submit", function(event){
         document.getElementById('category').value = ''
         document.getElementById('amount').value = ''
     }
+    else{
+        alert("Please fill out all fields with valid data")
+    }
 })
