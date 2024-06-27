@@ -2,6 +2,6 @@ The Expense Tracker is a user-friendly application designed to help individuals 
 
 
 <ul>
-<li>Easy Expense Entry: Quickly add new expenses with details such as amount, category, date, and description.</li>
-<li>Categorization: Organize expenses into customizable categories for better tracking and analysis.</li>
+<li><b>Easy Expense Entry:</b> Quickly add new expenses with details such as amount, category, date, and description.</li>
+<li><b>Categorization:</b> Organize expenses into customizable categories for better tracking and analysis.</li>
 </ul>
