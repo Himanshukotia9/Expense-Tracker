@@ -19,3 +19,12 @@ expenseForm.addEventListener("submit", function(event){
         alert("Please fill out all fields with valid data")
     }
 })
+function deleteAllRows() {
+    // Select the table body element
+    var tbody = document.getElementById('Expense-table').getElementsByTagName('tbody')[0];
+    
+    // Remove all <tr> elements within the <tbody>
+    while (tbody.rows.length > 0) {
+        tbody.deleteRow(0);
+    }
+}
