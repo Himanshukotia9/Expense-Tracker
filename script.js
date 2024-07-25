@@ -20,15 +20,6 @@ expenseForm.addEventListener("submit", function(event){
     }
 })
 
-function deleteAllRows() {
-    // Select the tbody element by its ID
-    const tbody = document.getElementById('Expense-list');
-    
-    // Remove all <tr> elements within the <tbody>
-    while (tbody.rows.length > 0) {
-        tbody.deleteRow(0);
-    }
-}
 
 function deleteTbody(){
     const tbody = document.getElementById('Expense-list');
@@ -36,3 +27,5 @@ function deleteTbody(){
         tbody.deleteRow(0);
     }
 }
+const deleteBtn = document.getElementById("delBtn");
+deleteBtn.addEventListener("click", deleteTbody);
