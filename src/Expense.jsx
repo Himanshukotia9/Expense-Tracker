@@ -1,17 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import { Trash2 } from 'lucide-react';
+import React, { useState } from 'react'
 
 export default function Expense() {
     const [input, setInput] = useState('')
     const [category, setCategory] = useState('')
     const [amount, setAmount] = useState('')
     const [expenses, setExpenses] = useState([])
-
-    // Load expenses from local storage when the component mounts
-    useEffect(() => {
-      const savedExpenses = JSON.parse(localStorage.getItem('expenses')) || [];
-      setExpenses(savedExpenses);
-    }, []);
 
     const addExpenses = () => {
         if(!input || !category || !amount) return;
@@ -22,18 +15,10 @@ export default function Expense() {
             category: category,
             amount: amount
         };
-        const updatedExpenses = [...expenses, newExpense];
-        setExpenses(updatedExpenses);
-        localStorage.setItem('expenses', JSON.stringify(updatedExpenses));
-
+        setExpenses([...expenses, newExpense]);
         setInput('');
         setCategory('');
         setAmount(''); 
-    }
-    const deleteExpense = (id) => {
-      const updatedExpenses = expenses.filter((expense) => expense.id !== id);
-        setExpenses(updatedExpenses);
-        localStorage.setItem('expenses', JSON.stringify(updatedExpenses)); // Update local storage here
     }
 
   return (
@@ -60,7 +45,6 @@ export default function Expense() {
                     <th className="p-2 border border-slate-300 text-left">Description</th>
                     <th className="p-2 border border-slate-300 text-left">Category</th>
                     <th className="p-2 border border-slate-300 text-left">Amount</th>
-                    <th className="p-2 border border-slate-300 text-left">Action</th>
                 </tr>
                 </thead>
                 <tbody id="Expense-list">
@@ -69,7 +53,6 @@ export default function Expense() {
                             <td className="p-2 border border-slate-300 text-left">{expense.description}</td>
                             <td className="p-2 border border-slate-300 text-left">{expense.category}</td>
                             <td className="p-2 border border-slate-300 text-left">{expense.amount}</td>
-                            <td className="p-2 border border-slate-300 text-center"><button className='bg-red-600 py-1 px-2 rounded-md text-white' onClick={() => deleteExpense(expense.id)}><Trash2 /></button></td>
                         </tr>
                     ))}
                 </tbody>
